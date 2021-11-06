@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class=""container-fluid text-center>
+    <h1>Welcome to customers</h1>
+</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Account ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customers:${listCustomers}">-->
+            <td >[[${customers.id}}]]</td>
+            <td th:text="${customers.accId}">accId</td>
+            <td th:text="${customers.address}">address</td>
+            <td th:text="${customers.name}">name</td>
+            <td th:text="${customers.phoneNo}">phoneNo</td>
+        </tr>
+
+<!--            <tr th:each="customers:${listCustomers}">-->
+<!--                <td>[[${customers.cusId}]]</td>-->
+<!--                <td>[[${customers.name}]]</td>-->
+<!--                <td>[[${customers.address}]]</td>-->
+<!--                <td>[[${customers.phoneNo}]]</td>-->
+<!--                <td>[[${customers.accId}]]</td>-->
+<!--                <td>[[${customers.accType}]]</td>-->
+<!--            </tr>-->
+
+    </tbody>
+</table>
+
+<form action="/addCustomers" method="post">
+    <div class="mb-3">
+        <label for="name" class="form-label">Example label</label>
+        <input type="text" class="form-control" id="name" placeholder="name">
+    </div>
+    <div class="mb-3">
+        <label for="address" class="form-label">Another label</label>
+        <input type="text" class="form-control" id="address" placeholder="Another input placeholder">
+    </div>
+    <div class="mb-3">
+        <label for="phoneNo" class="form-label">Another label</label>
+        <input type="text" class="form-control" id="phoneNo" placeholder="Another input placeholder">
+    </div>
+    <div class="mb-3">
+        <label for="accId" class="form-label">Another label</label>
+        <input type="text" class="form-control" id="accId" placeholder="Another input placeholder">
+    </div>
+    <div class="mb-3">
+        <label for="accType" class="form-label">Another label</label>
+        <input type="text" class="form-control" id="accType" placeholder="Another input placeholder">
+    </div>
+    <button>Add Customer</button>
+</form>
+</body>
+</html>
+
+
+<!--<tr th:each="customers:${listCustomers}">-->
+<!--    <td >[[${customers.id}}]]</td>-->
+<!--    <td th:text="${customers.accId}">accId</td>-->
+<!--    <td th:text="${customers.address}">address</td>-->
+<!--    <td th:text="${customers.name}">name</td>-->
+<!--    <td th:text="${customers.phoneNo}">phoneNo</td>-->
+<!--</tr>-->
